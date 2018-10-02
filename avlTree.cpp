@@ -24,9 +24,8 @@ int height(AVLNode* root) {
 
 //get balance value of left - right
 int getBalance(AVLNode* root) {
-	if (root == NULL) {
+	if (root == NULL)
 		return 0;
-	}
 	return height(root->left) - height(root->right);
 }
 
@@ -71,17 +70,16 @@ AVLNode* leftRotate(AVLNode* root) {
 
 //Insert a Node into the BST
 AVLNode* Insert(AVLNode* root, int data) {
-	if (root == NULL) {
+	if (root == NULL)
 		return CreateNewNode(data);
-	}
 
-	if (data < root->data) {
+	if (data < root->data)
 		root->left = Insert(root->left, data);
-	} else if (data > root->data){
+	else if (data > root->data)
 		root->right = Insert(root->right, data);
-	} else {
+	else
 		return root;
-	}
+	
 
 	root->height = 1 + max(height(root->left), height(root->right));
 
